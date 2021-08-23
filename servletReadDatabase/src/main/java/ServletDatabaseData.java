@@ -1,9 +1,11 @@
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eclipse.jdt.internal.compiler.ast.Statement;
+
 
 @WebServlet("/ServletDatabaseData")
 public class ServletDatabaseData extends HttpServlet {
@@ -21,7 +23,7 @@ public class ServletDatabaseData extends HttpServlet {
 			throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
-		String ID = request.getParameter("id");
+	
 		out.print("<h1>Display The record From Database</h1>");
 		out.println("<table border='1'><tr><th>id</th><th>name</th><th>address</th><th>age</th><th>mobile</th></tr>");
 		response.setContentType("text/html");
@@ -31,7 +33,7 @@ public class ServletDatabaseData extends HttpServlet {
 					"root");
 
 			Statement st = (Statement) con.createStatement();
-			ResultSet rs = ((java.sql.Statement) st).executeQuery("select * from servletdata where id=" + ID + "");
+			ResultSet rs =st.executeQuery("select * from servletdata");
 
 			while (rs.next()) {
 				out.print("<tr><td>");
