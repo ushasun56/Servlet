@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>filterDemosration1</display-name>
+  
+   
+   <servlet>
+   <servlet-name>HellowWordServlet</servlet-name>
+   <servlet-class>HellowWordServlet</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+   <servlet-name>HellowWordServlet</servlet-name>
+   <url-pattern>/HellowWordServlet</url-pattern>
+   </servlet-mapping>
+   
+    <filter>
+   <filter-name>LogFilter</filter-name>
+   <filter-class>LogFilter</filter-class>
+   </filter>
+   <filter-mapping>
+   <filter-name>LogFilter</filter-name>
+   <url-pattern>/HellowWordServlet</url-pattern>
+   </filter-mapping>
+   
+   <filter>
+   <filter-name>AuthenticationFilter</filter-name>
+   <filter-class>AuthenticationFilter</filter-class>
+   </filter>
+   <filter-mapping>
+   <filter-name>AuthenticationFilter</filter-name>
+   <url-pattern>/HellowWordServlet</url-pattern>
+   </filter-mapping>
+</web-app>
