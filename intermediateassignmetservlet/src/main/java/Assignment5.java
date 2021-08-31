@@ -45,7 +45,7 @@ public class Assignment5 extends HttpServlet {
 		      catch (IOException ignored) { }
 		    }
 
-		    // No luck with the saved state, check for an init parameter
+		   
 		    String initial = getInitParameter("initial");                    
 		    try {                                                            
 		      count = Integer.parseInt(initial);                             
@@ -53,7 +53,7 @@ public class Assignment5 extends HttpServlet {
 		    }                                                                
 		    catch (NumberFormatException ignored) { }  // null or non-integer value
 		                                                                     
-		    // Default to an initial count of "0"                            
+		                           
 		    count = 0;                                                       
 		  }                                        
 	
@@ -66,12 +66,12 @@ public class Assignment5 extends HttpServlet {
 		  }                                                                  
 		                                                                     
 		  public void destroy() {                                            
-		    super.destroy();  // entirely optional
+		    super.destroy();  
 		    saveState();                                                     
 		  }                                                                  
 		                                                                     
 		  public void saveState() {                                          
-		    // Try to save the accumulated count                             
+		                                
 		    FileWriter fileWriter = null;
 		    PrintWriter printWriter = null;
 		    try {                                                            
@@ -80,11 +80,11 @@ public class Assignment5 extends HttpServlet {
 		      printWriter.println(count);                                  
 		      return;                                                        
 		    }                                                                
-		    catch (IOException e) {  // problem during write                 
-		      // Log the exception. See Chapter 5.                           
+		    catch (IOException e) {               
+		                             
 		    }
 		    finally {
-		      // Make sure to close the file
+		    
 		      if (printWriter != null) {
 		        printWriter.close();
 		      }
